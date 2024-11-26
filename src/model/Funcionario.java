@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public abstract class Funcionario {
 
     private String cpf;
@@ -28,4 +30,24 @@ public abstract class Funcionario {
 
     public abstract float calcularPagamento();
 
+    @Override
+    public String toString() {
+        return "Funcionario{" +
+                "cpf='" + cpf + '\'' +
+                ", nome='" + nome + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Funcionario that = (Funcionario) o;
+        return Objects.equals(cpf, that.cpf) && Objects.equals(nome, that.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cpf, nome);
+    }
 }
