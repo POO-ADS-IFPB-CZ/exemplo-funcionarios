@@ -27,4 +27,10 @@ public class Comissionado extends Funcionario{
     public void setTotalVendas(float totalVendas) {
         this.totalVendas = totalVendas;
     }
+
+    @Override
+    public float calcularPagamento(){
+        return totalVendas*comissao;
+    }
+
 }
